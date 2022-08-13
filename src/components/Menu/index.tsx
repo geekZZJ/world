@@ -1,5 +1,6 @@
 import { defineComponent, Fragment } from 'vue'
 import { Document, Location } from '@element-plus/icons-vue'
+import classes from './index.module.less'
 
 const openedArr = ['1', '2']
 
@@ -31,7 +32,7 @@ function returnTitleSlot(item: MenuItem) {
 const menus = [
   {
     id: '1',
-    name: '菜单1',
+    name: '长颈鹿',
     icon: <Location></Location>,
     subMenus: [
       {
@@ -46,7 +47,7 @@ const menus = [
   },
   {
     id: '2',
-    name: '菜单2',
+    name: '短吻鳄',
     icon: <Document></Document>,
     subMenus: [
       {
@@ -65,7 +66,7 @@ export default defineComponent({
   name: 'IMenu',
   setup() {
     return () => (
-      <el-menu default-openeds={openedArr}>
+      <el-menu default-openeds={openedArr} class={classes.menu}>
         {menus.map((item) => {
           return (
             <el-sub-menu index={item.id} v-slots={returnTitleSlot(item)}>
